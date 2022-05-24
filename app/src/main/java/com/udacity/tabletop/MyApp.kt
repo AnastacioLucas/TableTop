@@ -1,6 +1,7 @@
 package com.udacity.tabletop
 
 import android.app.Application
+import com.google.firebase.FirebaseApp
 import com.udacity.tabletop.data.TableTopDataSource
 import com.udacity.tabletop.data.local.LocalDB
 import com.udacity.tabletop.data.local.TableTopLocalRepository
@@ -14,6 +15,7 @@ class MyApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        FirebaseApp.initializeApp(applicationContext)
 
         /**
          * use Koin Library as a service locator
