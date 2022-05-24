@@ -1,8 +1,8 @@
-package com.udacity.tabletop.locationreminders.data.local
+package com.udacity.tabletop.data.local
 
-import com.udacity.tabletop.locationreminders.data.TableTopDataSource
-import com.udacity.tabletop.locationreminders.data.dto.TableTopDTO
-import com.udacity.tabletop.locationreminders.data.dto.Result
+import com.udacity.tabletop.data.TableTopDataSource
+import com.udacity.tabletop.data.dto.TableTopDTO
+import com.udacity.tabletop.data.dto.Result
 import kotlinx.coroutines.*
 
 /**

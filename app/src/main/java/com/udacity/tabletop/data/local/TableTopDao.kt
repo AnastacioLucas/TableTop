@@ -1,10 +1,10 @@
-package com.udacity.tabletop.locationreminders.data.local
+package com.udacity.tabletop.data.local
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.udacity.tabletop.locationreminders.data.dto.TableTopDTO
+import com.udacity.tabletop.data.dto.TableTopDTO
 
 /**
  * Data Access Object for the reminders table.

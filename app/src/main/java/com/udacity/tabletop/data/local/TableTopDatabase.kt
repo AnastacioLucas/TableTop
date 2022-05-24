@@ -1,8 +1,8 @@
-package com.udacity.tabletop.locationreminders.data.local
+package com.udacity.tabletop.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.udacity.tabletop.locationreminders.data.dto.TableTopDTO
+import com.udacity.tabletop.data.dto.TableTopDTO
 
 /**
  * The Room Database that contains the reminders table.

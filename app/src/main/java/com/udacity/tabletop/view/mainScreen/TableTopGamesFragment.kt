@@ -1,4 +1,4 @@
-package com.udacity.tabletop.locationreminders.reminderslist
+package com.udacity.tabletop.view.mainScreen
 
 import android.os.Bundle
 import android.view.*
@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.firebase.ui.auth.AuthUI
 import com.udacity.tabletop.R
-import com.udacity.tabletop.base.BaseFragment
+import com.udacity.tabletop.view.base.BaseFragment
 import com.udacity.tabletop.databinding.FragmentRemindersBinding
 import com.udacity.tabletop.utils.setDisplayHomeAsUpEnabled
 import com.udacity.tabletop.utils.setTitle

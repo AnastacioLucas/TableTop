@@ -1,4 +1,4 @@
-package com.udacity.tabletop.base
+package com.udacity.tabletop.view.base
 
 import androidx.databinding.ViewDataBinding
 import androidx.databinding.library.baseAdapters.BR

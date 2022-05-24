@@ -1,4 +1,4 @@
-package com.udacity.tabletop.locationreminders.data.local
+package com.udacity.tabletop.data.local
 
 import android.content.Context
 import androidx.room.Room

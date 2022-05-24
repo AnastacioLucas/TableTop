@@ -1,7 +1,7 @@
-package com.udacity.tabletop.locationreminders.data
+package com.udacity.tabletop.data
 
-import com.udacity.tabletop.locationreminders.data.dto.TableTopDTO
-import com.udacity.tabletop.locationreminders.data.dto.Result
+import com.udacity.tabletop.data.dto.TableTopDTO
+import com.udacity.tabletop.data.dto.Result
 
 /**
  * Main entry point for accessing reminders data.

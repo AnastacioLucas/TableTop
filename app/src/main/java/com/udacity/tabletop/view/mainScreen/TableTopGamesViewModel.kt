@@ -1,13 +1,13 @@
-package com.udacity.tabletop.locationreminders.reminderslist
+package com.udacity.tabletop.view.mainScreen
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.udacity.tabletop.base.BaseViewModel
-import com.udacity.tabletop.locationreminders.data.TableTopDataSource
-import com.udacity.tabletop.locationreminders.data.dto.TableTopDTO
-import com.udacity.tabletop.locationreminders.data.dto.Result.Success
-import com.udacity.tabletop.locationreminders.data.dto.Result.Error
+import com.udacity.tabletop.view.base.BaseViewModel
+import com.udacity.tabletop.data.TableTopDataSource
+import com.udacity.tabletop.data.dto.TableTopDTO
+import com.udacity.tabletop.data.dto.Result.Success
+import com.udacity.tabletop.data.dto.Result.Error
 import kotlinx.coroutines.launch
 
 class TableTopGamesViewModel(

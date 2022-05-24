@@ -1,4 +1,4 @@
-package com.udacity.tabletop.locationreminders
+package com.udacity.tabletop.view
 
 import android.os.Bundle
 import android.view.MenuItem

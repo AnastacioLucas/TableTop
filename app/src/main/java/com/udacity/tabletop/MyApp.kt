@@ -1,10 +1,10 @@
 package com.udacity.tabletop
 
 import android.app.Application
-import com.udacity.tabletop.locationreminders.data.TableTopDataSource
-import com.udacity.tabletop.locationreminders.data.local.LocalDB
-import com.udacity.tabletop.locationreminders.data.local.TableTopLocalRepository
-import com.udacity.tabletop.locationreminders.reminderslist.TableTopGamesViewModel
+import com.udacity.tabletop.data.TableTopDataSource
+import com.udacity.tabletop.data.local.LocalDB
+import com.udacity.tabletop.data.local.TableTopLocalRepository
+import com.udacity.tabletop.view.mainScreen.TableTopGamesViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin

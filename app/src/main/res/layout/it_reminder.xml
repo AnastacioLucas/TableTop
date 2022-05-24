@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="com.udacity.tabletop.locationreminders.reminderslist.TableTopDataItem" />
+            type="com.udacity.tabletop.view.mainScreen.TableTopDataItem" />
     </data>
 
     <androidx.cardview.widget.CardView

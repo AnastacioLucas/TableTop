@@ -1,4 +1,4 @@
-package com.udacity.tabletop.base
+package com.udacity.tabletop.view.base
 
 import android.widget.Toast
 import androidx.fragment.app.Fragment

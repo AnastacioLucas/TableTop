@@ -1,4 +1,4 @@
-package com.udacity.tabletop.locationreminders.data.dto
+package com.udacity.tabletop.data.dto
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

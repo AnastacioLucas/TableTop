@@ -1,4 +1,4 @@
-package com.udacity.tabletop.locationreminders.reminderslist
+package com.udacity.tabletop.view.mainScreen
 
 import java.io.Serializable
 import java.util.*

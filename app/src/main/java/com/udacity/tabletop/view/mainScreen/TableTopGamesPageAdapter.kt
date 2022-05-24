@@ -1,7 +1,7 @@
-package com.udacity.tabletop.locationreminders.reminderslist
+package com.udacity.tabletop.view.mainScreen
 
 import com.udacity.tabletop.R
-import com.udacity.tabletop.base.BaseRecyclerViewAdapter
+import com.udacity.tabletop.view.base.BaseRecyclerViewAdapter
 
 
 //Use data binding to show the reminder on the item
