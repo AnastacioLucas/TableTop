@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/StudioProjects/NanoDegreeKotling/Core 05/Project/KotlinAdvanced02/starter/app/src/main/res/layout/activity_reminder_description.xml" value="0.36666666666666664" />
+        <entry key="..\:/StudioProjects/NanoDegreeKotling/Core 05/Project/KotlinAdvanced02/starter/app/src/main/res/layout/activity_reminders.xml" value="0.36666666666666664" />
+        <entry key="..\:/StudioProjects/NanoDegreeKotling/Core 05/Project/KotlinAdvanced02/starter/app/src/main/res/layout/fragment_save_reminder.xml" value="0.36666666666666664" />
+        <entry key="..\:/StudioProjects/NanoDegreeKotling/Core 05/Project/KotlinAdvanced02/starter/app/src/main/res/layout/fragment_select_location.xml" value="0.36666666666666664" />
+        <entry key="..\:/StudioProjects/NanoDegreeKotling/Core 05/Project/KotlinAdvanced02/starter/app/src/main/res/layout/it_reminder.xml" value="0.36666666666666664" />
+        <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/layout/activity_authentication.xml" value="0.35104166666666664" />
+        <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/layout/activity_reminder_description.xml" value="0.35104166666666664" />
+        <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/layout/activity_reminders.xml" value="0.35104166666666664" />
+        <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/layout/fragment_login.xml" value="0.35104166666666664" />
+        <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/layout/fragment_reminders.xml" value="0.35104166666666664" />
+        <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/layout/fragment_save_reminder.xml" value="0.35104166666666664" />
+        <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/layout/fragment_select_location.xml" value="0.35104166666666664" />
+        <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/layout/it_reminder.xml" value="0.7706511175898931" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>

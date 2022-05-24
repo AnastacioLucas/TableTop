@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "413194048446",
+    "project_id": "tabletop-990fe",
+    "storage_bucket": "tabletop-990fe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:413194048446:android:5b1b9b2eb9808ff4ba9fef",
+        "android_client_info": {
+          "package_name": "com.udacity.tabletop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "413194048446-edpj4mlk8qgsh3irj5nqur8jnl3vsqiq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.udacity.tabletop",
+            "certificate_hash": "25958399386b40fda96e368aba14780d9c2ad490"
+          }
+        },
+        {
+          "client_id": "413194048446-lg677kvcd3riu1rm7i28bfihunu4a946.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOX0HJrSV1I3xMEro56_QIvtNi_0Ztv50"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "413194048446-lg677kvcd3riu1rm7i28bfihunu4a946.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
