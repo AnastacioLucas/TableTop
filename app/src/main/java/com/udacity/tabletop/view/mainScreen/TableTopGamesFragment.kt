@@ -5,6 +5,7 @@ import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.firebase.ui.auth.AuthUI
+import com.google.android.material.tabs.TabLayoutMediator
 import com.udacity.tabletop.R
 import com.udacity.tabletop.view.base.BaseFragment
 import com.udacity.tabletop.databinding.FragmentRemindersBinding
@@ -38,7 +39,7 @@ class ReminderListFragment : BaseFragment() {
         setDisplayHomeAsUpEnabled(false)
         setTitle(getString(R.string.app_name))
 
-        binding.refreshLayout.setOnRefreshListener { _viewModel.loadReminders() }
+//        binding.refreshLayout.setOnRefreshListener { _viewModel.loadReminders() }
 
         return binding.root
     }
@@ -46,7 +47,10 @@ class ReminderListFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = this
+
         setupRecyclerView()
+        setupTabLayout()
+
         binding.addReminderFAB.setOnClickListener {
         }
 
@@ -61,11 +65,23 @@ class ReminderListFragment : BaseFragment() {
         _viewModel.loadReminders()
     }
 
+    private fun setupTabLayout() {
+        TabLayoutMediator(
+            binding.tabLayout, binding.reminderssRecyclerView
+        ) { tab, position ->
+            tab.text = when(position) {
+                0 -> "New/OnGoing"
+                1 -> "Invites"
+                2 -> "Closed"
+                else -> "New/OnGoing"
+            }
+        }.attach()
+    }
+
     private fun setupRecyclerView() {
-        val adapter = TableTopGamesPageAdapter {
-        }
+        val adapter = TableTopGamesPageAdapter (requireActivity(), 3)
 //        setup the recycler view using the extension function
-        binding.reminderssRecyclerView.setup(adapter)
+        binding.reminderssRecyclerView.adapter = (adapter)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
