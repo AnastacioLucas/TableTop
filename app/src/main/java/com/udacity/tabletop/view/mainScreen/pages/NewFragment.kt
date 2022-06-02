@@ -7,10 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.udacity.tabletop.R
 import com.udacity.tabletop.databinding.NewFragmentBinding
+import com.udacity.tabletop.view.base.BaseFragment
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class NewFragment : Fragment() {
+class NewFragment : BaseFragment() {
 
     private lateinit var binding: NewFragmentBinding
+    override val _viewModel: NewViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,10 +27,7 @@ class NewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupData()
-    }
-
-    private fun setupData() {
-        binding.label.text = getString(R.string.first_fragment)
+        binding.newTableTop.setOnClickListener {
+        }
     }
 }

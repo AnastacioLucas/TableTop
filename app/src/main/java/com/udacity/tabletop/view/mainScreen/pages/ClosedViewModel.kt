@@ -1,4 +1,4 @@
-package com.udacity.tabletop.view.mainScreen
+package com.udacity.tabletop.view.mainScreen.pages
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
@@ -8,9 +8,10 @@ import com.udacity.tabletop.data.TableTopDataSource
 import com.udacity.tabletop.data.dto.TableTopDTO
 import com.udacity.tabletop.data.dto.Result.Success
 import com.udacity.tabletop.data.dto.Result.Error
+import com.udacity.tabletop.view.mainScreen.TableTopDataItem
 import kotlinx.coroutines.launch
 
-class MainViewModel(
+class ClosedViewModel(
     app: Application,
     private val dataSource: TableTopDataSource
 ) : BaseViewModel(app) {

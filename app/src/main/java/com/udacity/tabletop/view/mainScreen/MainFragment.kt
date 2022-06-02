@@ -2,64 +2,44 @@ package com.udacity.tabletop.view.mainScreen
 
 import android.os.Bundle
 import android.view.*
-import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.firebase.ui.auth.AuthUI
 import com.google.android.material.tabs.TabLayoutMediator
 import com.udacity.tabletop.R
-import com.udacity.tabletop.view.base.BaseFragment
 import com.udacity.tabletop.utils.setDisplayHomeAsUpEnabled
 import com.udacity.tabletop.utils.setTitle
-import org.koin.androidx.viewmodel.ext.android.viewModel
-
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.udacity.tabletop.databinding.FragmentMainBinding
 
-class MainFragment : BaseFragment() {
+class MainFragment : Fragment() {
 
     //use Koin to retrieve the ViewModel instance
-    override val _viewModel: MainViewModel by viewModel()
     private lateinit var binding: FragmentMainBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding =
-            DataBindingUtil.inflate(
-                inflater,
-                R.layout.fragment_main, container, false
-            )
-        binding.viewModel = _viewModel
+    ): View {
+        binding = FragmentMainBinding.inflate(layoutInflater)
 
         setHasOptionsMenu(true)
         setDisplayHomeAsUpEnabled(false)
         setTitle(getString(R.string.app_name))
-
-//        binding.refreshLayout.setOnRefreshListener { _viewModel.loadTableTops() }
 
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.lifecycleOwner = this
+//        binding.lifecycleOwner = this
 
         setupRecyclerView()
         setupTabLayout()
 
-        binding.newTableTop.setOnClickListener {
-        }
-
         if (Firebase.auth.currentUser == null) {
             findNavController().navigate(MainFragmentDirections.toLogin())
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        //load the tableTops list on the ui
-        _viewModel.loadTableTops()
     }
 
     private fun setupTabLayout() {

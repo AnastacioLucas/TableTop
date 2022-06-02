@@ -7,10 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.udacity.tabletop.R
 import com.udacity.tabletop.databinding.InvitesFragmentBinding
+import com.udacity.tabletop.view.base.BaseFragment
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class SecondFragment : Fragment() {
+class SecondFragment : BaseFragment() {
 
     private lateinit var binding: InvitesFragmentBinding
+    override val _viewModel: InvitesViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
