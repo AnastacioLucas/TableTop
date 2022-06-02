@@ -10,38 +10,38 @@ import com.udacity.tabletop.data.dto.Result.Success
 import com.udacity.tabletop.data.dto.Result.Error
 import kotlinx.coroutines.launch
 
-class TableTopGamesViewModel(
+class MainViewModel(
     app: Application,
     private val dataSource: TableTopDataSource
 ) : BaseViewModel(app) {
-    // list that holds the reminder data to be displayed on the UI
-    val remindersList = MutableLiveData<List<TableTopDataItem>>()
+    // list that holds the tableTop data to be displayed on the UI
+    private val tableTopsList = MutableLiveData<List<TableTopDataItem>>()
 
     /**
-     * Get all the reminders from the DataSource and add them to the remindersList to be shown on the UI,
+     * Get all the tableTops from the DataSource and add them to the tableTopsList to be shown on the UI,
      * or show error if any
      */
-    fun loadReminders() {
+    fun loadTableTops() {
         showLoading.value = true
         viewModelScope.launch {
             //interacting with the dataSource has to be through a coroutine
-            val result = dataSource.getReminders()
+            val result = dataSource.getTableTops()
             showLoading.postValue(false)
             when (result) {
                 is Success<*> -> {
                     val dataList = ArrayList<TableTopDataItem>()
-                    dataList.addAll((result.data as List<TableTopDTO>).map { reminder ->
-                        //map the reminder data from the DB to the be ready to be displayed on the UI
+                    dataList.addAll((result.data as List<TableTopDTO>).map { tableTop ->
+                        //map the tableTop data from the DB to the be ready to be displayed on the UI
                         TableTopDataItem(
-                            reminder.title,
-                            reminder.description,
-                            reminder.location,
-                            reminder.latitude,
-                            reminder.longitude,
-                            reminder.id
+                            tableTop.title,
+                            tableTop.description,
+                            tableTop.location,
+                            tableTop.latitude,
+                            tableTop.longitude,
+                            tableTop.id
                         )
                     })
-                    remindersList.value = dataList
+                    tableTopsList.value = dataList
                 }
                 is Error ->
                     showSnackBar.value = result.message
@@ -53,9 +53,9 @@ class TableTopGamesViewModel(
     }
 
     /**
-     * Inform the user that there's not any data if the remindersList is empty
+     * Inform the user that there's not any data if the tableTopsList is empty
      */
     private fun invalidateShowNoData() {
-        showNoData.value = remindersList.value == null || remindersList.value!!.isEmpty()
+        showNoData.value = tableTopsList.value == null || tableTopsList.value!!.isEmpty()
     }
 }

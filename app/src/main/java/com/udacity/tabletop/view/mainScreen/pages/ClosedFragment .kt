@@ -1,4 +1,4 @@
-package com.udacity.tabletop.view.mainScreen
+package com.udacity.tabletop.view.mainScreen.pages
 
 import android.os.Bundle
 import android.view.LayoutInflater

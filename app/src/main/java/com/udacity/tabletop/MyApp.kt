@@ -5,7 +5,7 @@ import com.google.firebase.FirebaseApp
 import com.udacity.tabletop.data.TableTopDataSource
 import com.udacity.tabletop.data.local.LocalDB
 import com.udacity.tabletop.data.local.TableTopLocalRepository
-import com.udacity.tabletop.view.mainScreen.TableTopGamesViewModel
+import com.udacity.tabletop.view.mainScreen.MainViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
@@ -23,17 +23,17 @@ class MyApp : Application() {
         val myModule = module {
             //Declare a ViewModel - be later inject into Fragment with dedicated injector using by viewModel()
             viewModel {
-                TableTopGamesViewModel(
+                MainViewModel(
                     get(),
                     get() as TableTopDataSource
                 )
             }
-            // RemindersLocalRepository
+            // TableTopsLocalRepository
             single<TableTopLocalRepository> {TableTopLocalRepository(get())}
-            // ReminderDataSource
+            // TableTopDataSource
             single<TableTopDataSource> {get<TableTopLocalRepository>()}
 
-            single { LocalDB.createRemindersDao(this@MyApp) }
+            single { LocalDB.createTableTopsDao(this@MyApp) }
         }
 
         startKoin {

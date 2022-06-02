@@ -8,22 +8,19 @@ import com.firebase.ui.auth.AuthUI
 import com.google.android.material.tabs.TabLayoutMediator
 import com.udacity.tabletop.R
 import com.udacity.tabletop.view.base.BaseFragment
-import com.udacity.tabletop.databinding.FragmentRemindersBinding
 import com.udacity.tabletop.utils.setDisplayHomeAsUpEnabled
 import com.udacity.tabletop.utils.setTitle
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.udacity.tabletop.utils.setup
+import com.udacity.tabletop.databinding.FragmentMainBinding
 
-const val RESULT_OK = -1
-
-class ReminderListFragment : BaseFragment() {
+class MainFragment : BaseFragment() {
 
     //use Koin to retrieve the ViewModel instance
-    override val _viewModel: TableTopGamesViewModel by viewModel()
-    private lateinit var binding: FragmentRemindersBinding
+    override val _viewModel: MainViewModel by viewModel()
+    private lateinit var binding: FragmentMainBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,7 +28,7 @@ class ReminderListFragment : BaseFragment() {
         binding =
             DataBindingUtil.inflate(
                 inflater,
-                R.layout.fragment_reminders, container, false
+                R.layout.fragment_main, container, false
             )
         binding.viewModel = _viewModel
 
@@ -39,7 +36,7 @@ class ReminderListFragment : BaseFragment() {
         setDisplayHomeAsUpEnabled(false)
         setTitle(getString(R.string.app_name))
 
-//        binding.refreshLayout.setOnRefreshListener { _viewModel.loadReminders() }
+//        binding.refreshLayout.setOnRefreshListener { _viewModel.loadTableTops() }
 
         return binding.root
     }
@@ -51,23 +48,23 @@ class ReminderListFragment : BaseFragment() {
         setupRecyclerView()
         setupTabLayout()
 
-        binding.addReminderFAB.setOnClickListener {
+        binding.newTableTop.setOnClickListener {
         }
 
         if (Firebase.auth.currentUser == null) {
-            findNavController().navigate(ReminderListFragmentDirections.toLogin())
+            findNavController().navigate(MainFragmentDirections.toLogin())
         }
     }
 
     override fun onResume() {
         super.onResume()
-        //load the reminders list on the ui
-        _viewModel.loadReminders()
+        //load the tableTops list on the ui
+        _viewModel.loadTableTops()
     }
 
     private fun setupTabLayout() {
         TabLayoutMediator(
-            binding.tabLayout, binding.reminderssRecyclerView
+            binding.tabLayout, binding.mainPages
         ) { tab, position ->
             tab.text = when(position) {
                 0 -> "New/OnGoing"
@@ -79,9 +76,9 @@ class ReminderListFragment : BaseFragment() {
     }
 
     private fun setupRecyclerView() {
-        val adapter = TableTopGamesPageAdapter (requireActivity(), 3)
+        val adapter = MainPageAdapter (requireActivity(), 3)
 //        setup the recycler view using the extension function
-        binding.reminderssRecyclerView.adapter = (adapter)
+        binding.mainPages.adapter = (adapter)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -90,7 +87,7 @@ class ReminderListFragment : BaseFragment() {
                 AuthUI.getInstance()
                     .signOut(requireContext())
                     .addOnCompleteListener {
-                        findNavController().navigate(ReminderListFragmentDirections.toLogin())
+                        findNavController().navigate(MainFragmentDirections.toLogin())
                     }
             }
         }

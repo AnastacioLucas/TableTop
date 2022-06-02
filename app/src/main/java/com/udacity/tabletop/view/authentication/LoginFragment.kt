@@ -92,11 +92,10 @@ class LoginFragment : Fragment() {
     private fun onSignInResult(result: FirebaseAuthUIAuthenticationResult) {
         val response = result.idpResponse
         if (result.resultCode == RESULT_OK) {
-            navController.navigate(LoginFragmentDirections.toReminderList())
+            navController.navigate(LoginFragmentDirections.toMainFragment())
         } else {
 //            Toast.makeText(requireContext(), R.string.warning_login_fail, Toast.LENGTH_SHORT).show()
             Toast.makeText(requireContext(), response.toString(), Toast.LENGTH_SHORT).show()
         }
     }
-
 }

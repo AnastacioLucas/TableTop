@@ -5,18 +5,16 @@ import androidx.room.Room
 
 
 /**
- * Singleton class that is used to create a reminder db
+ * Singleton class that is used to create a tableTop db
  */
 object LocalDB {
-
     /**
-     * static method that creates a reminder class and returns the DAO of the reminder
+     * static method that creates a tableTop class and returns the DAO of the tableTop
      */
-    fun createRemindersDao(context: Context): TableTopDao {
+    fun createTableTopsDao(context: Context): TableTopDao {
         return Room.databaseBuilder(
             context.applicationContext,
-            TableTopDatabase::class.java, "locationReminders.db"
-        ).build().reminderDao()
+            TableTopDatabase::class.java, "locationTableTops.db"
+        ).build().tableTopDao()
     }
-
 }

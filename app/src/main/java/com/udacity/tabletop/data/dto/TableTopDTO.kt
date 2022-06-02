@@ -6,17 +6,17 @@ import androidx.room.PrimaryKey
 import java.util.*
 
 /**
- * Immutable model class for a Reminder. In order to compile with Room
+ * Immutable model class for a TableTop. In order to compile with Room
  *
- * @param title         title of the reminder
- * @param description   description of the reminder
- * @param location      location name of the reminder
- * @param latitude      latitude of the reminder location
- * @param longitude     longitude of the reminder location
- * @param id          id of the reminder
+ * @param title         title of the tableTop
+ * @param description   description of the tableTop
+ * @param location      location name of the tableTop
+ * @param latitude      latitude of the tableTop location
+ * @param longitude     longitude of the tableTop location
+ * @param id          id of the tableTop
  */
 
-@Entity(tableName = "reminders")
+@Entity(tableName = "tableTop")
 data class TableTopDTO(
     @ColumnInfo(name = "title") var title: String?,
     @ColumnInfo(name = "description") var description: String?,

@@ -1,4 +1,4 @@
-package com.udacity.tabletop.view.mainScreen
+package com.udacity.tabletop.view.mainScreen.pages
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,18 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.udacity.tabletop.R
-import com.udacity.tabletop.databinding.InvitesFragmentBinding
+import com.udacity.tabletop.databinding.NewFragmentBinding
 
-class SecondFragment : Fragment() {
+class NewFragment : Fragment() {
 
-    private lateinit var binding: InvitesFragmentBinding
+    private lateinit var binding: NewFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = InvitesFragmentBinding.inflate(layoutInflater)
+        binding = NewFragmentBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -28,6 +28,6 @@ class SecondFragment : Fragment() {
     }
 
     private fun setupData() {
-        binding.label.text = getString(R.string.second_fragment)
+        binding.label.text = getString(R.string.first_fragment)
     }
 }

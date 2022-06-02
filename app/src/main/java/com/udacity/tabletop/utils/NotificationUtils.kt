@@ -15,7 +15,7 @@ import com.udacity.tabletop.view.mainScreen.TableTopDataItem
 private const val TAG = "GeofenceTransitionsJobIntentService"
 private const val NOTIFICATION_CHANNEL_ID = BuildConfig.APPLICATION_ID + ".channel"
 
-fun sendNotification(context: Context, reminderDataItem: TableTopDataItem) {
+fun sendNotification(context: Context, tableTopDataItem: TableTopDataItem) {
     val notificationManager = context
         .getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
@@ -35,11 +35,11 @@ fun sendNotification(context: Context, reminderDataItem: TableTopDataItem) {
         notificationManager.createNotificationChannel(channel)
     }
 
-//    val intent = ReminderDescriptionActivity.newIntent(context.applicationContext, reminderDataItem)
+//    val intent = TableTopDescriptionActivity.newIntent(context.applicationContext, tableTopDataItem)
 
-    //create a pending intent that opens ReminderDescriptionActivity when the user clicks on the notification
+    //create a pending intent that opens TableTopDescriptionActivity when the user clicks on the notification
     val stackBuilder = TaskStackBuilder.create(context)
-//        .addParentStack(ReminderDescriptionActivity::class.java)
+//        .addParentStack(TableTopDescriptionActivity::class.java)
 //        .addNextIntent(intent)
     val notificationPendingIntent = stackBuilder
         .getPendingIntent(getUniqueId(), PendingIntent.FLAG_UPDATE_CURRENT)
@@ -47,8 +47,8 @@ fun sendNotification(context: Context, reminderDataItem: TableTopDataItem) {
 //    build the notification object with the data to be shown
     val notification = NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
         .setSmallIcon(R.mipmap.ic_launcher)
-        .setContentTitle(reminderDataItem.title)
-        .setContentText(reminderDataItem.location)
+        .setContentTitle(tableTopDataItem.title)
+        .setContentText(tableTopDataItem.location)
         .setContentIntent(notificationPendingIntent)
         .setAutoCancel(true)
         .build()

@@ -4,11 +4,11 @@ import com.udacity.tabletop.data.dto.TableTopDTO
 import com.udacity.tabletop.data.dto.Result
 
 /**
- * Main entry point for accessing reminders data.
+ * Main entry point for accessing tableTops data.
  */
 interface TableTopDataSource {
-    suspend fun getReminders(): Result<List<TableTopDTO>>
-    suspend fun saveReminder(reminder: TableTopDTO)
-    suspend fun getReminder(id: String): Result<TableTopDTO>
-    suspend fun deleteAllReminders()
+    suspend fun getTableTops(): Result<List<TableTopDTO>>
+    suspend fun saveTableTop(tableTop: TableTopDTO)
+    suspend fun getTableTop(id: String): Result<TableTopDTO>
+    suspend fun deleteAllTableTops()
 }

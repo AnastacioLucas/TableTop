@@ -7,7 +7,7 @@ import com.google.firebase.FirebaseApp
 import com.udacity.tabletop.R
 
 /**
- * The RemindersActivity that holds the reminders fragments
+ * The TableTopsActivity that holds the tableTops fragments
  */
 
 class MainActivity : AppCompatActivity(){
@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         FirebaseApp.initializeApp(applicationContext)
-        setContentView(R.layout.activity_reminders)
+        setContentView(R.layout.activity_main)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

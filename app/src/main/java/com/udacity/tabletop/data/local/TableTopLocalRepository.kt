@@ -10,47 +10,47 @@ import kotlinx.coroutines.*
  *
  * The repository is implemented so that you can focus on only testing it.
  *
- * @param remindersDao the dao that does the Room db operations
+ * @param tableTopDao the dao that does the Room db operations
  * @param ioDispatcher a coroutine dispatcher to offload the blocking IO tasks
  */
 class TableTopLocalRepository(
-    private val remindersDao: TableTopDao,
+    private val tableTopDao: TableTopDao,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : TableTopDataSource {
 
     /**
-     * Get the reminders list from the local db
-     * @return Result the holds a Success with all the reminders or an Error object with the error message
+     * Get the tableTops list from the local db
+     * @return Result the holds a Success with all the tableTops or an Error object with the error message
      */
-    override suspend fun getReminders(): Result<List<TableTopDTO>> = withContext(ioDispatcher) {
+    override suspend fun getTableTops(): Result<List<TableTopDTO>> = withContext(ioDispatcher) {
         return@withContext try {
-            Result.Success(remindersDao.getReminders())
+            Result.Success(tableTopDao.getTableTops())
         } catch (ex: Exception) {
             Result.Error(ex.localizedMessage)
         }
     }
 
     /**
-     * Insert a reminder in the db.
-     * @param reminder the reminder to be inserted
+     * Insert a tableTop in the db.
+     * @param tableTop the tableTop to be inserted
      */
-    override suspend fun saveReminder(reminder: TableTopDTO) =
+    override suspend fun saveTableTop(tableTop: TableTopDTO) =
         withContext(ioDispatcher) {
-            remindersDao.saveReminder(reminder)
+            tableTopDao.saveTableTop(tableTop)
         }
 
     /**
-     * Get a reminder by its id
-     * @param id to be used to get the reminder
-     * @return Result the holds a Success object with the Reminder or an Error object with the error message
+     * Get a tableTop by its id
+     * @param id to be used to get the tableTop
+     * @return Result the holds a Success object with the TableTop or an Error object with the error message
      */
-    override suspend fun getReminder(id: String): Result<TableTopDTO> = withContext(ioDispatcher) {
+    override suspend fun getTableTop(id: String): Result<TableTopDTO> = withContext(ioDispatcher) {
         try {
-            val reminder = remindersDao.getReminderById(id)
-            if (reminder != null) {
-                return@withContext Result.Success(reminder)
+            val tableTop = tableTopDao.getTableTopById(id)
+            if (tableTop != null) {
+                return@withContext Result.Success(tableTop)
             } else {
-                return@withContext Result.Error("Reminder not found!")
+                return@withContext Result.Error("TableTop not found!")
             }
         } catch (e: Exception) {
             return@withContext Result.Error(e.localizedMessage)
@@ -58,11 +58,11 @@ class TableTopLocalRepository(
     }
 
     /**
-     * Deletes all the reminders in the db
+     * Deletes all the tableTops in the db
      */
-    override suspend fun deleteAllReminders() {
+    override suspend fun deleteAllTableTops() {
         withContext(ioDispatcher) {
-            remindersDao.deleteAllReminders()
+            tableTopDao.deleteAllTableTops()
         }
     }
 }

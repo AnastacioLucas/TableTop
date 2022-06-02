@@ -7,35 +7,35 @@ import androidx.room.Query
 import com.udacity.tabletop.data.dto.TableTopDTO
 
 /**
- * Data Access Object for the reminders table.
+ * Data Access Object for the tableTops table.
  */
 @Dao
 interface TableTopDao {
     /**
-     * @return all reminders.
+     * @return all tableTops.
      */
-    @Query("SELECT * FROM reminders")
-    suspend fun getReminders(): List<TableTopDTO>
+    @Query("SELECT * FROM tableTop")
+    suspend fun getTableTops(): List<TableTopDTO>
 
     /**
-     * @param reminderId the id of the reminder
-     * @return the reminder object with the reminderId
+     * @param tableTopId the id of the tableTop
+     * @return the tableTop object with the tableTopId
      */
-    @Query("SELECT * FROM reminders where entry_id = :reminderId")
-    suspend fun getReminderById(reminderId: String): TableTopDTO?
+    @Query("SELECT * FROM tableTop where entry_id = :tableTopId")
+    suspend fun getTableTopById(tableTopId: String): TableTopDTO?
 
     /**
-     * Insert a reminder in the database. If the reminder already exists, replace it.
+     * Insert a tableTop in the database. If the tableTop already exists, replace it.
      *
-     * @param reminder the reminder to be inserted.
+     * @param tableTop the tableTop to be inserted.
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun saveReminder(reminder: TableTopDTO)
+    suspend fun saveTableTop(tableTop: TableTopDTO)
 
     /**
-     * Delete all reminders.
+     * Delete all tableTops.
      */
-    @Query("DELETE FROM reminders")
-    suspend fun deleteAllReminders()
+    @Query("DELETE FROM tableTop")
+    suspend fun deleteAllTableTops()
 
 }
