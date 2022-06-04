@@ -37,9 +37,9 @@ class MainFragment : Fragment() {
         setupRecyclerView()
         setupTabLayout()
 
-        if (Firebase.auth.currentUser == null) {
-            findNavController().navigate(MainFragmentDirections.toLogin())
-        }
+//        if (Firebase.auth.currentUser == null) {
+//            findNavController().navigate(MainFragmentDirections.toLogin())
+//        }
     }
 
     private fun setupTabLayout() {

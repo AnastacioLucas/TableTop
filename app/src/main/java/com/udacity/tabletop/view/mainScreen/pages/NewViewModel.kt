@@ -16,7 +16,7 @@ class NewViewModel(
     private val dataSource: TableTopDataSource
 ) : BaseViewModel(app) {
     // list that holds the tableTop data to be displayed on the UI
-    private val tableTopsList = MutableLiveData<List<TableTopDataItem>>()
+    val tableTopsList = MutableLiveData<List<TableTopDataItem>>()
 
     /**
      * Get all the tableTops from the DataSource and add them to the tableTopsList to be shown on the UI,
@@ -50,6 +50,17 @@ class NewViewModel(
 
             //check if no data has to be shown
             invalidateShowNoData()
+        }
+    }
+
+    fun loadTableTops2(item: TableTopDataItem) {
+        showLoading.value = true
+        viewModelScope.launch {
+            //interacting with the dataSource has to be through a coroutine
+            showLoading.postValue(false)
+            val dataList = ArrayList<TableTopDataItem>()
+            dataList.add(item)
+            tableTopsList.value = dataList
         }
     }
 
