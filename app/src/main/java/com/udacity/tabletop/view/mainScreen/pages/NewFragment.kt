@@ -1,18 +1,18 @@
 package com.udacity.tabletop.view.mainScreen.pages
 
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.udacity.tabletop.R
-import com.udacity.tabletop.data.dto.TableTopDTO
+import com.udacity.tabletop.data.model.Game
 import com.udacity.tabletop.databinding.NewFragmentBinding
 import com.udacity.tabletop.utils.setup
 import com.udacity.tabletop.view.base.BaseFragment
-import com.udacity.tabletop.view.mainScreen.TableTopDataItem
+import com.udacity.tabletop.data.model.TableTopDataItem
+import com.udacity.tabletop.utils.GameStatus
+import com.udacity.tabletop.utils.formatTime
+import com.udacity.tabletop.utils.fromLocalDateToDate
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
 
@@ -41,14 +41,21 @@ class NewFragment : BaseFragment() {
         }
 
         binding.newGameRefreshLayout.setOnRefreshListener {
-            addMock()
             binding.newGameRefreshLayout.isRefreshing = false
         }
+        addMock()
     }
 
     private fun addMock(){
-        var itemTest = TableTopDataItem("Item teste","esse é um item de teste ", "boa pergunta", 1.0, 1.2)
-        _viewModel.loadTableTops2(itemTest)
+        val gameItem = Game(
+            "Cthulhu Cap 06 boss Hastur",
+            "cthulhu death may die",
+            GameStatus.NEW.name,
+            "Sabado",
+            Calendar.getInstance().time
+        )
+
+        _viewModel.loadTableTops2(gameItem)
     }
 
     private fun setupRecyclerView() {

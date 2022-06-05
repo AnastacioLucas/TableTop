@@ -1,4 +1,4 @@
-package com.udacity.tabletop.view.mainScreen
+package com.udacity.tabletop.data.model
 
 import java.io.Serializable
 import java.util.*

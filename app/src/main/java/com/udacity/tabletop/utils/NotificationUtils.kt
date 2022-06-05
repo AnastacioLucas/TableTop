@@ -10,7 +10,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.TaskStackBuilder
 import com.udacity.tabletop.BuildConfig
 import com.udacity.tabletop.R
-import com.udacity.tabletop.view.mainScreen.TableTopDataItem
+import com.udacity.tabletop.data.model.TableTopDataItem
 
 private const val TAG = "GeofenceTransitionsJobIntentService"
 private const val NOTIFICATION_CHANNEL_ID = BuildConfig.APPLICATION_ID + ".channel"

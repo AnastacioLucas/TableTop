@@ -8,7 +8,7 @@ import com.udacity.tabletop.data.TableTopDataSource
 import com.udacity.tabletop.data.dto.TableTopDTO
 import com.udacity.tabletop.data.dto.Result.Success
 import com.udacity.tabletop.data.dto.Result.Error
-import com.udacity.tabletop.view.mainScreen.TableTopDataItem
+import com.udacity.tabletop.data.model.TableTopDataItem
 import kotlinx.coroutines.launch
 
 class ClosedViewModel(
