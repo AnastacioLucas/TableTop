@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.udacity.tabletop.data.model.Game
+import com.udacity.tabletop.data.model.Player
 import com.udacity.tabletop.databinding.NewFragmentBinding
 import com.udacity.tabletop.utils.setup
 import com.udacity.tabletop.view.base.BaseFragment
@@ -47,15 +48,32 @@ class NewFragment : BaseFragment() {
     }
 
     private fun addMock(){
+        val gameMaster = Player("Redkey")
+
         val gameItem = Game(
             "Cthulhu Cap 06 boss Hastur",
-            "cthulhu death may die",
+            gameMaster,
             GameStatus.NEW.name,
-            "Sabado",
+            "Sabado,Domingo",
             Calendar.getInstance().time
         )
 
-        _viewModel.loadTableTops2(gameItem)
+        val gameItem1 = Game(
+            "Cthulhu Cap 06 boss Hastur",
+            gameMaster,
+            GameStatus.ON_GOING.name,
+            "Sabado,Domingo",
+            Calendar.getInstance().time
+        )
+
+        Log.d("CardGame", "GameStatus: "+GameStatus.ON_GOING)
+        Log.d("CardGame", "gameItem1: "+gameItem1.status)
+
+        val dataList = ArrayList<Game>()
+        dataList.add(gameItem)
+        dataList.add(gameItem1)
+        _viewModel.tableTopsList.value = dataList
+//        _viewModel.loadTableTops2(gameItem)
     }
 
     private fun setupRecyclerView() {

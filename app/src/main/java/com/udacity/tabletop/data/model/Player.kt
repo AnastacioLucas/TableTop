@@ -5,6 +5,5 @@ import java.util.*
 
 data class Player(
     var name: String?,
-    var phone: String?,
-    val id: String = UUID.randomUUID().toString()
+//    var phone: String?
 ) : Serializable

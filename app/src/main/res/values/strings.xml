@@ -47,7 +47,6 @@
 
     <string name="warning_login_fail">Something went wrong please try again</string>
 
-
     <!--    Geofence Status Strings-->
     <string name="geofences_added">Clue Geofence added.</string>
     <string name="geofences_removed">Geofences removed.</string>
@@ -60,4 +59,6 @@
     <string name="second_fragment">Invites</string>
     <string name="first_fragment">New</string>
     <string name="closed_fragment">Closed</string>
+    <string name="show_the_game_status">show the game status</string>
+    <string name="game_master_label">Master: %1$s</string>
 </resources>

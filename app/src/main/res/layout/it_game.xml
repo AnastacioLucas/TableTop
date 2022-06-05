@@ -38,37 +38,50 @@
 
                 <TextView
                     android:id="@+id/title"
-                    android:layout_width="wrap_content"
+                    style="@style/AudioFileInfoOverlayText"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/padding_small"
+                    android:fontFamily="@font/archivo_black"
                     android:text="@{game.title}"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_normal"
+                    android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Title" />
+                    tools:text="Cthulhu cap 06 the last boss" />
 
                 <TextView
-                    android:id="@+id/description"
+                    android:id="@+id/gameDayAndTime"
+                    style="@style/AudioFileInfoOverlayText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{game.game}"
+                    android:formatTimeAndDay="@{game}"
                     android:textSize="@dimen/text_size_small"
-                    app:layout_constraintStart_toStartOf="@id/title"
-                    app:layout_constraintTop_toBottomOf="@id/title"
-                    tools:text="Description" />
+                    card_view:layout_constraintBottom_toBottomOf="parent"
+                    card_view:layout_constraintStart_toStartOf="parent"
+                    card_view:layout_constraintTop_toTopOf="parent"
+                    tools:text="Data" />
+
+                <ImageView
+                    android:id="@+id/gameStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/show_the_game_status"
+                    android:gameStatus="@{game.status}"
+                    card_view:layout_constraintBottom_toBottomOf="parent"
+                    card_view:layout_constraintEnd_toEndOf="parent"
+                    tools:src="@drawable/game_finished" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/gameMaster"
+                    style="@style/AudioFileInfoOverlayText"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@{game.daysOfTheWeek}"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="@dimen/text_size_small"
-                    app:layout_constraintBottom_toBottomOf="@+id/description"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/title"
-                    tools:text="Location" />
+                    android:fontFamily="@font/archivo_black"
+                    android:masterLabel="@{game.master.name}"
+                    android:textSize="16sp"
+                    card_view:layout_constraintBottom_toBottomOf="parent"
+                    card_view:layout_constraintStart_toStartOf="parent"
+                    tools:text="Game master" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

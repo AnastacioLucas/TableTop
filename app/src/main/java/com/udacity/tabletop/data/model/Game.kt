@@ -8,8 +8,8 @@ import java.util.*
  */
 data class Game(
     var title: String?,
-//    var master: Player?,
-    var game: String = "cthulhu death may die",
+    var master: Player?,
+//    var game: String = "cthulhu death may die",
     var status: String?,
     var daysOfTheWeek: String?,
     var time: Date?,
