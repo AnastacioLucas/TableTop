@@ -4,10 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.udacity.tabletop.R
-import com.udacity.tabletop.data.model.Game
-import com.udacity.tabletop.data.model.Player
+import com.udacity.tabletop.view.mainScreen.Game
+import com.udacity.tabletop.view.mainScreen.Player
 import com.udacity.tabletop.databinding.InvitesFragmentBinding
 import com.udacity.tabletop.utils.GameStatus
 import com.udacity.tabletop.utils.setup
@@ -42,21 +40,8 @@ class SecondFragment : BaseFragment() {
         binding.newGameRefreshLayout.setOnRefreshListener {
             binding.newGameRefreshLayout.isRefreshing = false
         }
-        addMock()
-    }
 
-    private fun addMock(){
-        val gameMaster = Player("Redkey")
-
-        val gameItem = Game(
-            "Cthulhu Cap 06 boss Hastur",
-            gameMaster,
-            GameStatus.INVITED.name,
-            "Sabado,Domingo",
-            Calendar.getInstance().time
-        )
-
-        _viewModel.loadTableTops2(gameItem)
+        _viewModel.loadTableTops()
     }
 
     private fun setupRecyclerView() {

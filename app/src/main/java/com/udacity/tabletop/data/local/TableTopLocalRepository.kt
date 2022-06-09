@@ -1,7 +1,7 @@
 package com.udacity.tabletop.data.local
 
 import com.udacity.tabletop.data.TableTopDataSource
-import com.udacity.tabletop.data.dto.TableTopDTO
+import com.udacity.tabletop.data.dto.GameDTO
 import com.udacity.tabletop.data.dto.Result
 import kotlinx.coroutines.*
 
@@ -22,7 +22,7 @@ class TableTopLocalRepository(
      * Get the tableTops list from the local db
      * @return Result the holds a Success with all the tableTops or an Error object with the error message
      */
-    override suspend fun getTableTops(): Result<List<TableTopDTO>> = withContext(ioDispatcher) {
+    override suspend fun getTableTops(): Result<List<GameDTO>> = withContext(ioDispatcher) {
         return@withContext try {
             Result.Success(tableTopDao.getTableTops())
         } catch (ex: Exception) {
@@ -34,9 +34,9 @@ class TableTopLocalRepository(
      * Insert a tableTop in the db.
      * @param tableTop the tableTop to be inserted
      */
-    override suspend fun saveTableTop(tableTop: TableTopDTO) =
+    override suspend fun saveTableTop(game: GameDTO) =
         withContext(ioDispatcher) {
-            tableTopDao.saveTableTop(tableTop)
+            tableTopDao.saveTableTop(game)
         }
 
     /**
@@ -44,7 +44,7 @@ class TableTopLocalRepository(
      * @param id to be used to get the tableTop
      * @return Result the holds a Success object with the TableTop or an Error object with the error message
      */
-    override suspend fun getTableTop(id: String): Result<TableTopDTO> = withContext(ioDispatcher) {
+    override suspend fun getTableTop(id: String): Result<GameDTO> = withContext(ioDispatcher) {
         try {
             val tableTop = tableTopDao.getTableTopById(id)
             if (tableTop != null) {

@@ -8,7 +8,7 @@
     <data>
         <variable
             name="game"
-            type="com.udacity.tabletop.data.model.Game" />
+            type="com.udacity.tabletop.view.mainScreen.Game" />
     </data>
 
     <LinearLayout

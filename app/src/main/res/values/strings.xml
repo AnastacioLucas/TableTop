@@ -61,4 +61,6 @@
     <string name="closed_fragment">Closed</string>
     <string name="show_the_game_status">show the game status</string>
     <string name="game_master_label">Master: %1$s</string>
+
+    <string name="game_salved">Jogo salvo</string>
 </resources>

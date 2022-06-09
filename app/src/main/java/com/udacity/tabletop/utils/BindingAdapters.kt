@@ -1,7 +1,5 @@
 package com.udacity.tabletop.utils
 
-import android.text.Spannable
-import android.text.SpannedString
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
@@ -10,7 +8,7 @@ import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.udacity.tabletop.R
-import com.udacity.tabletop.data.model.Game
+import com.udacity.tabletop.view.mainScreen.Game
 import com.udacity.tabletop.view.base.BaseRecyclerViewAdapter
 import java.io.StringWriter
 

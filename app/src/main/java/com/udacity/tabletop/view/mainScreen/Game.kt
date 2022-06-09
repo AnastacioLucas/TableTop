@@ -1,5 +1,6 @@
-package com.udacity.tabletop.data.model
+package com.udacity.tabletop.view.mainScreen
 
+import com.udacity.tabletop.data.dto.PlayerDTO
 import java.io.Serializable
 import java.util.*
 
@@ -15,4 +16,8 @@ data class Game(
     var time: Date?,
 //    var guests: List<Player>?,
     val id: String = UUID.randomUUID().toString()
-) : Serializable
+) : Serializable {
+    fun getPlayerAsDTO(): PlayerDTO {
+        return PlayerDTO(master!!.name)
+    }
+}

@@ -3,16 +3,16 @@ package com.udacity.tabletop.view.mainScreen.pages
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.udacity.tabletop.R
 import com.udacity.tabletop.view.base.BaseViewModel
 import com.udacity.tabletop.data.TableTopDataSource
-import com.udacity.tabletop.data.dto.TableTopDTO
+import com.udacity.tabletop.data.dto.GameDTO
 import com.udacity.tabletop.data.dto.Result.Success
-import com.udacity.tabletop.data.dto.Result.Error
-import com.udacity.tabletop.data.model.Game
-import com.udacity.tabletop.data.model.TableTopDataItem
+import com.udacity.tabletop.view.mainScreen.Game
+import com.udacity.tabletop.view.mainScreen.Player
 import kotlinx.coroutines.launch
 
-class NewViewModel(
+class NewViewModel(val
     app: Application,
     private val dataSource: TableTopDataSource
 ) : BaseViewModel(app) {
@@ -23,45 +23,56 @@ class NewViewModel(
      * Get all the tableTops from the DataSource and add them to the tableTopsList to be shown on the UI,
      * or show error if any
      */
-//    fun loadTableTops() {
-//        showLoading.value = true
-//        viewModelScope.launch {
-//            //interacting with the dataSource has to be through a coroutine
-//            val result = dataSource.getTableTops()
-//            showLoading.postValue(false)
-//            when (result) {
-//                is Success<*> -> {
-//                    val dataList = ArrayList<TableTopDataItem>()
-//                    dataList.addAll((result.data as List<TableTopDTO>).map { tableTop ->
-//                        //map the tableTop data from the DB to the be ready to be displayed on the UI
-//                        TableTopDataItem(
-//                            tableTop.title,
-//                            tableTop.description,
-//                            tableTop.location,
-//                            tableTop.latitude,
-//                            tableTop.longitude,
-//                            tableTop.id
-//                        )
-//                    })
-//                    tableTopsList.value = dataList
-//                }
-//                is Error ->
-//                    showSnackBar.value = result.message
-//            }
-//
-//            //check if no data has to be shown
-//            invalidateShowNoData()
-//        }
-//    }
-
-    fun loadTableTops2(item: Game) {
+    fun loadTableTops() {
         showLoading.value = true
         viewModelScope.launch {
             //interacting with the dataSource has to be through a coroutine
+            val result = dataSource.getTableTops()
             showLoading.postValue(false)
-            val dataList = ArrayList<Game>()
-            dataList.add(item)
-            tableTopsList.value = dataList
+            when (result) {
+                is Success<*> -> {
+                    val dataList = ArrayList<Game>()
+                    dataList.addAll((result.data as List<GameDTO>).map { gameDTO ->
+                        //map the tableTop data from the DB to the be ready to be displayed on the UI
+                        Game(
+                            gameDTO.title,
+                            Player(gameDTO.master),
+                            gameDTO.status,
+                            gameDTO.daysOfTheWeek,
+                            gameDTO.time,
+                            gameDTO.id
+                        )
+                    })
+                    tableTopsList.value = dataList
+                }
+                is Error ->
+                    showSnackBar.value = result.message
+            }
+
+            //check if no data has to be shown
+            invalidateShowNoData()
+        }
+    }
+
+    /**
+     * Save the reminder to the data source
+     */
+    fun saveNewGame(game: Game) {
+        showLoading.value = true
+        viewModelScope.launch {
+            dataSource.saveTableTop(
+                GameDTO(
+                    game.title,
+                    game.getPlayerAsDTO(),
+                    game.status,
+                    game.daysOfTheWeek,
+                    game.time,
+                    game.id
+                )
+            )
+            showLoading.value = false
+            showToast.value = app.getString(R.string.game_salved)
+//            navigationCommand.value = NavigationCommand.Back
         }
     }
 

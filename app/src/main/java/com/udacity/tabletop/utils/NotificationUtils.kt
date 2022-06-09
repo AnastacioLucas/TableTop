@@ -10,12 +10,12 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.TaskStackBuilder
 import com.udacity.tabletop.BuildConfig
 import com.udacity.tabletop.R
-import com.udacity.tabletop.data.model.TableTopDataItem
+import com.udacity.tabletop.view.mainScreen.Game
 
 private const val TAG = "GeofenceTransitionsJobIntentService"
 private const val NOTIFICATION_CHANNEL_ID = BuildConfig.APPLICATION_ID + ".channel"
 
-fun sendNotification(context: Context, tableTopDataItem: TableTopDataItem) {
+fun sendNotification(context: Context, game: Game) {
     val notificationManager = context
         .getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
@@ -47,8 +47,8 @@ fun sendNotification(context: Context, tableTopDataItem: TableTopDataItem) {
 //    build the notification object with the data to be shown
     val notification = NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
         .setSmallIcon(R.mipmap.ic_launcher)
-        .setContentTitle(tableTopDataItem.title)
-        .setContentText(tableTopDataItem.location)
+//        .setContentTitle(tableTopDataItem.title)
+//        .setContentText(tableTopDataItem.location)
         .setContentIntent(notificationPendingIntent)
         .setAutoCancel(true)
         .build()

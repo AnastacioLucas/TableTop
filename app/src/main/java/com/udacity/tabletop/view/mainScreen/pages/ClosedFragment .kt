@@ -4,10 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.udacity.tabletop.R
-import com.udacity.tabletop.data.model.Game
-import com.udacity.tabletop.data.model.Player
+import com.udacity.tabletop.view.mainScreen.Game
+import com.udacity.tabletop.view.mainScreen.Player
 import com.udacity.tabletop.databinding.ClosedFragmentBinding
 import com.udacity.tabletop.utils.GameStatus
 import com.udacity.tabletop.utils.setup
@@ -42,33 +40,7 @@ class ClosedFragment : BaseFragment() {
         binding.newGameRefreshLayout.setOnRefreshListener {
             binding.newGameRefreshLayout.isRefreshing = false
         }
-        addMock()
-    }
-
-    private fun addMock(){
-        val gameMaster = Player("Redkey")
-
-        val gameItem = Game(
-            "Cthulhu Cap 06 boss Hastur",
-            gameMaster,
-            GameStatus.CANCELED.name,
-            "Sabado,Domingo",
-            Calendar.getInstance().time
-        )
-
-        val gameItem1 = Game(
-            "Cthulhu Cap 06 boss Hastur",
-            gameMaster,
-            GameStatus.FINISHED.name,
-            "Sabado,Domingo",
-            Calendar.getInstance().time
-        )
-
-        val dataList = ArrayList<Game>()
-        dataList.add(gameItem)
-        dataList.add(gameItem1)
-        _viewModel.tableTopsList.value = dataList
-//        _viewModel.loadTableTops2(gameItem)
+        _viewModel.loadTableTops()
     }
 
     private fun setupRecyclerView() {
