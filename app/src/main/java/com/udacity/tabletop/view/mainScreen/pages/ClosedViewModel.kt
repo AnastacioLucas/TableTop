@@ -26,7 +26,7 @@ class ClosedViewModel(
         showLoading.value = true
         viewModelScope.launch {
             //interacting with the dataSource has to be through a coroutine
-            val result = dataSource.getTableTops()
+            val result = dataSource.getAllFinishedAnCanceled()
             showLoading.postValue(false)
             when (result) {
                 is Result.Success<*> -> {

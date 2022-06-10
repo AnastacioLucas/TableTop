@@ -1,8 +1,15 @@
 package com.udacity.tabletop.data.local
 
+import androidx.annotation.Nullable
+import androidx.room.Query
 import com.udacity.tabletop.data.TableTopDataSource
 import com.udacity.tabletop.data.dto.GameDTO
 import com.udacity.tabletop.data.dto.Result
+import com.udacity.tabletop.utils.GameStatus.NEW
+import com.udacity.tabletop.utils.GameStatus.ON_GOING
+import com.udacity.tabletop.utils.GameStatus.INVITED
+import com.udacity.tabletop.utils.GameStatus.FINISHED
+import com.udacity.tabletop.utils.GameStatus.CANCELED
 import kotlinx.coroutines.*
 
 /**
@@ -38,6 +45,30 @@ class TableTopLocalRepository(
         withContext(ioDispatcher) {
             tableTopDao.saveTableTop(game)
         }
+
+    override suspend fun getAllNewAndOngoing(): Result<List<GameDTO>>  = withContext(ioDispatcher) {
+        return@withContext try {
+            Result.Success(tableTopDao.getAllNewAndOngoing(NEW.name, ON_GOING.name ))
+        } catch (ex: Exception) {
+            Result.Error(ex.localizedMessage)
+        }
+    }
+
+    override suspend fun getAllInvites(): Result<List<GameDTO>>  = withContext(ioDispatcher) {
+        return@withContext try {
+            Result.Success(tableTopDao.getAllInvites(INVITED.name))
+        } catch (ex: Exception) {
+            Result.Error(ex.localizedMessage)
+        }
+    }
+
+    override suspend fun getAllFinishedAnCanceled(): Result<List<GameDTO>> = withContext(ioDispatcher) {
+        return@withContext try {
+            Result.Success(tableTopDao.getAllFinishedAnCanceled(FINISHED.name, CANCELED.name))
+        } catch (ex: Exception) {
+            Result.Error(ex.localizedMessage)
+        }
+    }
 
     /**
      * Get a tableTop by its id

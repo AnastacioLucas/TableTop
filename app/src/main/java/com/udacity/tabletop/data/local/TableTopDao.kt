@@ -1,10 +1,16 @@
 package com.udacity.tabletop.data.local
 
+import androidx.annotation.Nullable
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.udacity.tabletop.data.dto.GameDTO
+import com.udacity.tabletop.utils.GameStatus.NEW
+import com.udacity.tabletop.utils.GameStatus.ON_GOING
+import com.udacity.tabletop.utils.GameStatus.INVITED
+import com.udacity.tabletop.utils.GameStatus.FINISHED
+import com.udacity.tabletop.utils.GameStatus.CANCELED
 
 /**
  * Data Access Object for the tableTops table.
@@ -23,6 +29,18 @@ interface TableTopDao {
      */
     @Query("SELECT * FROM game where game_id = :gameId")
     suspend fun getTableTopById(gameId: String): GameDTO?
+
+
+    @Query("SELECT * FROM game where status = :newGames OR status = :ongoing")
+    suspend fun getAllNewAndOngoing(newGames: String, ongoing: String): List<GameDTO>
+
+
+    @Query("SELECT * FROM game where status = :invite")
+    suspend fun getAllInvites(invite: String): List<GameDTO>
+
+
+    @Query("SELECT * FROM game where status = :finished OR status = :canceled")
+    suspend fun getAllFinishedAnCanceled(finished: String, canceled: String): List<GameDTO>
 
     /**
      * Insert a tableTop in the database. If the tableTop already exists, replace it.

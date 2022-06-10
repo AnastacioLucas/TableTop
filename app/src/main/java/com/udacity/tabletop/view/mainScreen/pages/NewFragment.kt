@@ -42,9 +42,8 @@ class NewFragment : BaseFragment() {
             binding.newGameRefreshLayout.isRefreshing = false
         }
 
-        _viewModel.loadTableTops()
-
 //        addMock()
+        _viewModel.loadTableTops()
     }
 
     private fun addMock(){

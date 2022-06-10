@@ -14,7 +14,7 @@ object LocalDB {
     fun createTableTopsDao(context: Context): TableTopDao {
         return Room.databaseBuilder(
             context.applicationContext,
-            TableTopDatabase::class.java, "locationTableTops.db"
+            TableTopDatabase::class.java, "tableTop.db"
         ).build().tableTopDao()
     }
 }
