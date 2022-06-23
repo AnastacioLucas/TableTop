@@ -9,7 +9,7 @@
         android:id="@+id/main_frag_destination"
         android:name="com.udacity.tabletop.view.mainScreen.MainFragment"
         tools:layout="@layout/fragment_main"
-        android:label="MainFragment">
+        android:label="@string/menu_home">
         <action
             android:id="@+id/to_login"
             app:destination="@id/login_destination"

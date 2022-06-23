@@ -13,12 +13,15 @@
         <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/drawable/background_splash.xml" value="0.3005" />
         <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/drawable/ic_add.xml" value="0.282" />
         <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/drawable/ic_launcher_background.xml" value="0.282" />
+        <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/drawable/ic_menu_camera.xml" value="0.3315" />
         <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/drawable/ic_save.xml" value="0.282" />
+        <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/drawable/side_nav_bar.xml" value="0.3315" />
         <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/layout/activity_authentication.xml" value="0.35104166666666664" />
         <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/layout/activity_reminder_description.xml" value="0.35104166666666664" />
         <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/layout/activity_reminders.xml" value="0.35104166666666664" />
         <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/layout/closed_fragment.xml" value="0.36666666666666664" />
+        <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/layout/content_main.xml" value="0.36666666666666664" />
         <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/layout/first_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/layout/fragment_login.xml" value="0.35104166666666664" />
         <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/layout/fragment_main.xml" value="0.36666666666666664" />
@@ -28,9 +31,12 @@
         <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/layout/invites_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/layout/it_game.xml" value="0.36666666666666664" />
         <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/layout/it_reminder.xml" value="0.7706511175898931" />
+        <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/layout/nav_header_main.xml" value="0.36666666666666664" />
         <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/layout/new_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/layout/second_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/layout/splash_screen.xml" value="0.22" />
+        <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/menu/activity_main_drawer.xml" value="0.36666666666666664" />
+        <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/menu/main.xml" value="0.36666666666666664" />
         <entry key="..\:/StudioProjects/NanoDegreeKotling/Final_Project/TableTopBoardGame/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3005" />
       </map>
     </option>
