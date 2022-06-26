@@ -9,8 +9,8 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/login_destination"
+            android:id="@+id/createGame_destination"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:title="@string/create_game_label" />
     </group>
 </menu>

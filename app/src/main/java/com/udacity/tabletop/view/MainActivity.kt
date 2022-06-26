@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.main_frag_destination, R.id.login_destination
+                R.id.main_frag_destination, R.id.createGame_destination
             ), drawerLayout
 
         )

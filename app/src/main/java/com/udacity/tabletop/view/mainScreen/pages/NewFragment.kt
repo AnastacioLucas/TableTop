@@ -1,30 +1,35 @@
 package com.udacity.tabletop.view.mainScreen.pages
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
+import com.udacity.tabletop.databinding.FragmentNewBinding
 import com.udacity.tabletop.view.mainScreen.Game
 import com.udacity.tabletop.view.mainScreen.Player
-import com.udacity.tabletop.databinding.NewFragmentBinding
 import com.udacity.tabletop.utils.setup
 import com.udacity.tabletop.view.base.BaseFragment
 import com.udacity.tabletop.utils.GameStatus
+import com.udacity.tabletop.view.authentication.LoginFragmentDirections
+import com.udacity.tabletop.view.mainScreen.MainFragmentDirections
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
 
 class NewFragment : BaseFragment() {
 
-    private lateinit var binding: NewFragmentBinding
+    private lateinit var binding: FragmentNewBinding
     override val _viewModel: NewViewModel by viewModel()
+
+    private lateinit var navController: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = NewFragmentBinding.inflate(layoutInflater)
+        binding = FragmentNewBinding.inflate(layoutInflater)
 
         binding.viewModel = _viewModel
         return binding.root
@@ -32,10 +37,12 @@ class NewFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        navController = findNavController()
         binding.lifecycleOwner = this
         setupRecyclerView()
 
-        binding.newTableTop.setOnClickListener {
+        binding.newTableTopGame.setOnClickListener {
+            navController.navigate(MainFragmentDirections.toCreateGame())
         }
 
         binding.newGameRefreshLayout.setOnRefreshListener {

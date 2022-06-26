@@ -23,9 +23,9 @@ class MainFragment : Fragment() {
     ): View {
         binding = FragmentMainBinding.inflate(layoutInflater)
 
-        setHasOptionsMenu(true)
-        setDisplayHomeAsUpEnabled(false)
-        setTitle(getString(R.string.app_name))
+//        setHasOptionsMenu(true)
+//        setDisplayHomeAsUpEnabled(false)
+//        setTitle(getString(R.string.app_name))
 
         return binding.root
     }

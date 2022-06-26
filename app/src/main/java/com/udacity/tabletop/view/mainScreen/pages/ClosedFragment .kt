@@ -4,18 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.udacity.tabletop.view.mainScreen.Game
-import com.udacity.tabletop.view.mainScreen.Player
-import com.udacity.tabletop.databinding.ClosedFragmentBinding
-import com.udacity.tabletop.utils.GameStatus
+import com.udacity.tabletop.databinding.FragmentClosedBinding
 import com.udacity.tabletop.utils.setup
 import com.udacity.tabletop.view.base.BaseFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import java.util.*
 
 class ClosedFragment : BaseFragment() {
 
-    private lateinit var binding: ClosedFragmentBinding
+    private lateinit var binding: FragmentClosedBinding
     override val _viewModel: ClosedViewModel by viewModel()
 
     override fun onCreateView(
@@ -23,7 +19,7 @@ class ClosedFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = ClosedFragmentBinding.inflate(layoutInflater)
+        binding = FragmentClosedBinding.inflate(layoutInflater)
 
         binding.viewModel = _viewModel
         return binding.root

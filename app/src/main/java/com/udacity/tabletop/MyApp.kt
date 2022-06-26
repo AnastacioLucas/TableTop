@@ -5,6 +5,7 @@ import com.google.firebase.FirebaseApp
 import com.udacity.tabletop.data.TableTopDataSource
 import com.udacity.tabletop.data.local.LocalDB
 import com.udacity.tabletop.data.local.TableTopLocalRepository
+import com.udacity.tabletop.view.mainScreen.createGame.CreateGameViewModel
 import com.udacity.tabletop.view.mainScreen.pages.ClosedViewModel
 import com.udacity.tabletop.view.mainScreen.pages.InvitesViewModel
 import com.udacity.tabletop.view.mainScreen.pages.NewViewModel
@@ -38,6 +39,12 @@ class MyApp : Application() {
             }
             viewModel {
                 ClosedViewModel(
+                    get(),
+                    get() as TableTopDataSource
+                )
+            }
+            viewModel {
+                CreateGameViewModel(
                     get(),
                     get() as TableTopDataSource
                 )

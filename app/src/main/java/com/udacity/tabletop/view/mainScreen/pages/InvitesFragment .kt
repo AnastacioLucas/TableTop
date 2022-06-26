@@ -4,18 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.udacity.tabletop.view.mainScreen.Game
-import com.udacity.tabletop.view.mainScreen.Player
-import com.udacity.tabletop.databinding.InvitesFragmentBinding
-import com.udacity.tabletop.utils.GameStatus
+import com.udacity.tabletop.databinding.FragmentInvitesBinding
 import com.udacity.tabletop.utils.setup
 import com.udacity.tabletop.view.base.BaseFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import java.util.*
 
 class SecondFragment : BaseFragment() {
 
-    private lateinit var binding: InvitesFragmentBinding
+    private lateinit var binding: FragmentInvitesBinding
     override val _viewModel: InvitesViewModel by viewModel()
 
     override fun onCreateView(
@@ -23,7 +19,7 @@ class SecondFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = InvitesFragmentBinding.inflate(layoutInflater)
+        binding = FragmentInvitesBinding.inflate(layoutInflater)
 
         binding.viewModel = _viewModel
         return binding.root
